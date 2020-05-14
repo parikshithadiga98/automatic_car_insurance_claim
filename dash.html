@@ -1,0 +1,182 @@
+
+ <!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+     <title>VEHICLE MANAGEMENT</title>
+    <link rel="icon" href="img\logo.png" type="img\png" sizes="36x36">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/dp3.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/dp2.css')}}">
+    
+ 
+     
+  </head>
+  <body>
+<script>
+    var error = '{{ er }}';
+    if(error){
+    	alert(error)}
+  </script>
+
+      <header>
+
+          
+          <p style="font-size:55px;font-weight:bold;width:80%;left:10%;text-align:center;color:beige;">
+            Application of Vehicle Management Dashboard</p>
+
+
+
+      </header>
+
+      <section class="boxcontainer">
+        <div class="side-nav">
+          <nav >
+            <ul>
+              <li class="active">
+                <div class="nav1" style="font-weight:bold;font-size:120%;">
+
+                 <p>{{welcome}}</p>
+                </div>
+              </li>
+<li class="active">
+<span><button onclick="document.getElementById('upr').style.display='block'" style="width:auto;">update Profile</button></span>
+<span><button onclick="document.getElementById('chp').style.display='block'" style="width:auto;">Change Password</button></span>
+
+<!--span><form action="/claim" method="post"><button type="submit" name="cl">Claim</button></form> </span-->
+<span><form action="/logout" method="post"><button type="submit" name="lout">logout</button></form> </span>
+<span><form action="/delete" method="post"><button type="submit" name="del">Delete Account</button></form> </span>
+               </li></ul>
+           </nav>
+
+        </div>
+
+		<div class="main-content">
+
+           <div class="title">
+              <label>Upload Photos</label>
+			</div>
+	<div class="options"> </div>
+
+   <div class="dropdown-content">
+            <div id="upr" class="modal">
+                     <form class="modal-content animate" action="/update" method="post" autocomplete="off">
+                   <div class="imgcontainer">
+                  <span onclick="document.getElementById('upr').style.display='none'" class="close" title="Close ">&times;</span>
+     
+                   </div>
+
+                  <div class="container">
+                  <label for="vcn"><b>vehicle CC Number</b></label>
+                 <input type="text" placeholder=" Enter CC Number" name="vcn" required>
+                  <label for="vrn"><b> Vehicle Registration Number</b></label>
+                  <input type="text" placeholder=" Enter Registration Number" name="vrn" required>
+                 <label for="in"><b>Insurance Number</b></label>
+                 <input type="text" placeholder="Enter Insurance Number" name="in" required>
+		<label for="in"><b>fir number</b></label>
+                 <input type="text" placeholder="Enter fir Number" name="fir" required>
+
+                 
+                 <button type="submit">Submit</button>
+      
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('upr').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+
+		    </div>
+        </div>
+  <div class="dropdown-content">
+            <div id="chp" class="modal">
+                     <form class="modal-content animate" action="/cp" method="post" autocomplete="off">
+                   <div class="imgcontainer">
+                  <span onclick="document.getElementById('chp').style.display='none'" class="close" title="Close ">&times;</span>
+     
+                   </div>
+
+                  <div class="container">
+			<div id="chpcont">
+                               
+                   <label for="un"><b>Change Password</b></label><br>
+      
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+  <label for="psw1"><b>Re-Enter Password</b></label>
+      <input type="password" placeholder="Re-Enter Password" name="psw1" required>
+                 <button type="submit">Submit</button>
+</div>
+
+      
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('chp').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+
+		    </div>
+        
+
+        </div></div>
+
+		  <div class="main">
+                           <div class="widget">
+<div id="images">
+ <form class="modal-content animate" action="/upload" method="post" autocomplete="off" enctype="multipart/form-data">
+                   
+                  <div class="container">
+                  <label for="up1"><b>UPLOAD PHOTO</b></label>
+<br><br>
+                  <label ><b>front view pic</b></label>
+                 <input type="file" name="up1" >
+                  <label ><b>back view pic</b></label>
+                  <input type="file"  name="up2" >
+                 <label ><b>side view pic</b></label>
+                 <input type="file"  name="up3">
+                 <button type="submit">Submit</button>  
+                
+      
+    </div>
+
+    
+  </form>
+
+</div>
+                                    
+
+                             </div>
+                        </div>
+
+        </div>
+      </section>
+
+<script>
+
+var modal1 = document.getElementById('upr');
+
+window.onclick = function(event) {
+    if (event.target == modal1) {
+        modal.style.display = "none";
+    }
+}
+var modal2 = document.getElementById('chp');
+
+window.onclick = function(event) {
+    if (event.target == modal2) {
+        modal.style.display = "none";
+    }
+}
+var modal3 = document.getElementById('am');
+
+window.onclick = function(event) {
+    if (event.target == modal3) {
+        modal.style.display = "none";
+    }
+}
+</script>
+  </body>
+
+</html>
